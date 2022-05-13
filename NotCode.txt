@@ -1,0 +1,67 @@
+main.py
+
+import combat
+import random
+import stats
+
+game = True
+combat = False
+#print(stats.weapon_list[str(random.randint(1,3))])
+
+while game:
+  player_health = int(input("Enter player hit points: \n"))
+  player_weapon = str(input("Choose a weapon! \n 1: Sword \n 2: Spear \n 3: Greatsword \n"))
+  player_armor = str(input("Select your armor! \n 1:Leather \n 2: Chainmail \n 3: Plate Armor \n"))
+  print(f"You have {player_health} hit points, you are holding a {stats.weapon_list[player_weapon]}, and you are wearing {stats.armor_list[player_armor]}!")
+  
+  monster_type = str(random.randint(1,3)) 
+  monster_weapon = str(random.randint(1,3))
+  monster_armor = str(random.randint(1,3))
+
+  print(f"You will fight a {stats.monster_list[monster_type]}, holding a {stats.weapon_list[monster_weapon]}, wearing {stats.armor_list[monster_armor]}!!")
+
+  combat_condit = input(f"Would you like to engage in combat??!?: Y/N \n")
+  if combat_condit == "Y" or combat_condit == 'y':
+    combat = True
+  while combat = True:
+    monster_roll = random.randint(1,20)
+    player_roll = random.randint(1,20)
+
+  
+
+NEW FILE    NEW FILE    NEW FILE   NEW FILE  
+combat.py
+
+import random
+
+def roll_attack():
+  roll = random.randint(1,20)
+  return roll
+def roll_damage(wep_damage):
+  roll = random.randint(1,int(wep_damage))
+  return roll
+
+def int_roll(player_bonus, monster_bonus):
+  player_roll = random.randint(1,20)
+  monster_roll = random.randint(1,20)
+  player_roll += player_bonus
+  monster_roll += monster_bonus
+
+
+
+NEW FILE    NEW FILE    NEW FILE   NEW FILE 
+stats.py
+
+weapon_choice = {'1':'sword', '2':'spear', '3':'greatsword'} 
+armor_choice = {'1':'leather armor', '2':'chain mail', '3':'plate armor'}
+
+monster_list = {'1':'Slime', '2':'Goblin', '3':'Troll'}
+monster_health = {'1':20, '2':40, '3':60}
+#1=sword, 2=spear, 3=greatsword
+
+sword = {'damage':8, }
+plate_armor = {'defense':3, 'speed':-1}
+
+weapon_list = {'sword and shield':{'damage':4, 'armor bonus':2}, 'spear':{'damage':6, 'armor bonus':0}, 'greatsword':{'damage':8, 'armor bonus':-1}}
+
+armor_list = {'leather armor':{'armor bonus':-1, 'speed bonus':3}, 'chain mail':{'armor bonus':1, 'speed bonus':1}, 'plate armor':{'armor bonus':3, 'speed bonus':-2} }
